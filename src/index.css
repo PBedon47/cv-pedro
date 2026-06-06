@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4f1ec;
+  font-family: 'DM Sans', sans-serif;
+  color: #1a1a1a;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

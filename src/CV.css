@@ -1,0 +1,258 @@
+/* ── Contenedor principal ── */
+.cv-root {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Botones de descarga ── */
+.cv-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 0 0 1.2rem;
+}
+
+.btn-dl {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #ffffff;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+.btn-dl:hover:not(:disabled) { background: #f0ede8; }
+.btn-dl:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-dl--primary {
+  background: #1a1a1a;
+  color: #ffffff;
+  border-color: #1a1a1a;
+}
+.btn-dl--primary:hover:not(:disabled) { opacity: 0.82; }
+
+/* ── Papel del CV ── */
+.cv-paper {
+  background: #ffffff;
+  border: 1px solid #e0dbd2;
+  border-radius: 12px;
+  padding: 52px 58px;
+}
+
+/* ── Header ── */
+.cv-header {
+  border-bottom: 1.5px solid #1a1a1a;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+}
+
+.cv-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  margin: 0 0 4px;
+  line-height: 1.1;
+  color: #1a1a1a;
+}
+
+.cv-title {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #666;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+
+.cv-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: 12.5px;
+  color: #555;
+}
+
+.cv-contact a { color: #555; }
+.cv-contact a:hover { color: #1a1a1a; text-decoration: underline; }
+
+/* ── Sección ── */
+.cv-section { margin-bottom: 24px; }
+
+.section-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  border-bottom: 0.5px solid #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 14px;
+}
+
+.sub-title {
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #777;
+  margin: 12px 0 6px;
+}
+
+/* ── Resumen ── */
+.cv-summary {
+  font-family: 'EB Garamond', serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* ── Experiencia ── */
+.exp-item { margin-bottom: 22px; }
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+
+.exp-role {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.exp-period {
+  font-size: 12px;
+  color: #888;
+  white-space: nowrap;
+}
+
+.exp-company {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.exp-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.exp-bullets li {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.68;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 3px;
+}
+
+.exp-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #aaa;
+  font-size: 11px;
+  top: 1px;
+}
+
+/* ── Logros ── */
+.logro-item {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.65;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 4px;
+}
+
+/* ── Tags ── */
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.tag {
+  font-size: 11.5px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background: #f4f1ec;
+  color: #555;
+  border: 0.5px solid #ddd;
+}
+
+.tag--hi {
+  background: #e8f0fb;
+  color: #1a4fa0;
+  border-color: transparent;
+  font-weight: 500;
+}
+
+/* ── Skills grid ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.skill-group-title {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+/* ── Educación ── */
+.edu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.edu-school {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.edu-degree {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+}
+
+/* ── Proyectos ── */
+.proj-item { margin-bottom: 12px; }
+.proj-name { font-size: 13.5px; font-weight: 500; color: #1a1a1a; }
+.proj-desc { font-size: 13px; color: #555; line-height: 1.65; }
+.proj-tech { font-size: 12px; color: #888; font-style: italic; margin-top: 3px; }
+
+/* ── Idiomas ── */
+.lang-row { display: flex; gap: 24px; }
+.lang-item { font-size: 13px; color: #555; }
+.lang-item strong { color: #1a1a1a; font-weight: 500; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .cv-paper { padding: 28px 22px; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .exp-header { flex-direction: column; gap: 2px; }
+  .edu-row { flex-direction: column; gap: 2px; }
+}
