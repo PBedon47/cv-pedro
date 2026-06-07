@@ -191,21 +191,28 @@ export function CVDocument() {
           ))}
         </View>
 
-          <View style={s.section}>
-            <SectionTitle>Proyectos Destacados</SectionTitle>
-            {projects.map((p, i) => (
-              <View key={i} style={s.projItem}>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end" }}>
-                  <Text style={s.projName}>{p.name}</Text>
-                  {p.link && (
-                    <Link src={p.link} style={{ fontSize: 7.5, color: C.hiText }}>Ver proyecto ↗</Link>
-                  )}
-                </View>
-                <Text style={s.projDescStand}>{p.desc}</Text>
-                <Text style={s.projTech}>{p.tech}</Text>
-              </View>
-            ))}
-          </View>
+                  <View style={s.section}>
+                    <SectionTitle>Proyectos Destacados</SectionTitle>
+                    {projects.map((p, i) => (
+                      <View key={i} style={s.projItem}>
+                        <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                          <Text style={s.projName}>{p.name}</Text>
+                          {p.link && (
+                            <Link src={p.link} style={{ 
+                              fontSize: 8, 
+                              color: C.hiText, 
+                              textDecoration: "underline",
+                              fontFamily: "Helvetica-Bold"
+                            }}>
+                              🔗 Ver proyecto
+                            </Link>
+                          )}
+                        </View>
+                        <Text style={s.projDescStand}>{p.desc}</Text>
+                        <Text style={s.projTech}>{p.tech}</Text>
+                      </View>
+                    ))}
+                  </View>
         <PageNum />
       </Page>
 
