@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { CVDocument } from "./CVPdf.jsx";
 import { cvData } from "./cvData";
@@ -8,11 +8,9 @@ import "./CV.css";
 function Tag({ children, highlight }) {
   return <span className={`tag${highlight ? " tag--hi" : ""}`}>{children}</span>;
 }
-
 function SectionTitle({ children }) {
   return <p className="section-title">{children}</p>;
 }
-
 function SubTitle({ children }) {
   return <p className="sub-title">{children}</p>;
 }
@@ -29,19 +27,16 @@ export default function CV() {
   const {
     name, title, contact, summary, experience,
     projects, skills, highlightSkills,
-    education, certifications, languages,
+    education, certifications, languages, additionalKnowledge,
   } = cvData;
 
   return (
     <div className="cv-root">
 
-      {/* ── Botones de descarga ── */}
       <div className="cv-actions">
         <button className="btn-dl" onClick={handleWord} disabled={loadingWord}>
           {loadingWord ? "Generando..." : "⬇ Descargar Word"}
         </button>
-
-        {/* PDF real con @react-pdf/renderer */}
         <PDFDownloadLink
           document={<CVDocument />}
           fileName="CV_Pedro_Bedon.pdf"
@@ -51,7 +46,6 @@ export default function CV() {
         </PDFDownloadLink>
       </div>
 
-      {/* ── Vista previa del CV (para referencia visual) ── */}
       <div className="cv-paper" id="cv-content">
 
         {/* HEADER */}
@@ -93,6 +87,7 @@ export default function CV() {
               {exp.project && (
                 <>
                   <SubTitle>{exp.project.title}</SubTitle>
+                  <p className="cv-summary" style={{ marginBottom: "6px" }}>{exp.project.desc}</p>
                   <ul className="exp-bullets">
                     {exp.project.bullets.map((b, j) => <li key={j}>{b}</li>)}
                   </ul>
@@ -155,6 +150,24 @@ export default function CV() {
             ))}
           </div>
         </div>
+
+        {/* CONOCIMIENTOS COMPLEMENTARIOS */}
+        {additionalKnowledge && (
+          <div className="cv-section">
+            <SectionTitle>Conocimientos Complementarios</SectionTitle>
+            {additionalKnowledge.map((block, i) => (
+              <div key={i} className="exp-item">
+                <div className="exp-header">
+                  <span className="exp-role">{block.area}</span>
+                </div>
+                <p className="exp-company">{block.context}</p>
+                <ul className="exp-bullets">
+                  {block.items.map((item, j) => <li key={j}>{item}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* EDUCACIÓN */}
         <div className="cv-section">

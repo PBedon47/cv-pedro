@@ -10,7 +10,7 @@ export const cvData = {
     linkedin: "https://linkedin.com/in/pedro-bedon-carbajal",
   },
   summary:
-    "Egresado de la carrera técnica de Ingeniería de Software con IA con experiencia en desarrollo frontend utilizando React, Next.js, TypeScript y Vite. He participado en el desarrollo de aplicaciones web y soluciones tecnológicas que incorporan inteligencia artificial, contribuyendo a la implementación de funcionalidades orientadas a la automatización de procesos y la mejora de la eficiencia operativa..",
+    "Egresado de la carrera técnica de Ingeniería de Software con IA con experiencia en desarrollo frontend utilizando React, Next.js, TypeScript y Vite. He participado en el desarrollo de aplicaciones web y soluciones tecnológicas que incorporan inteligencia artificial, contribuyendo a la implementación de funcionalidades orientadas a la automatización de procesos y la mejora de la eficiencia operativa.",
   experience: [
     {
       role: "Practicante — Frontend Developer",
@@ -34,7 +34,7 @@ export const cvData = {
           "Desarrollo de la interfaz web de un chatbot basado en IA para automatizar consultas y agendamiento de reuniones.",
           "Implementación de componentes reutilizables, formularios y flujos conversacionales enfocados en UX.",
           "Integración de la interfaz con servicios de IA y módulos de gestión de citas.",
-          "Solución, actualmente utilizada para optimizar la atención de consultas y gestión de reuniones.",
+          "Solución actualmente utilizada para optimizar la atención de consultas y gestión de reuniones.",
         ],
       },
       techTags: ["React", "Next.js", "TypeScript", "Vite", "JavaScript", "Node.js", "NestJS", "PostgreSQL", "MySQL", "Figma", "APIs REST", "Scrum"],
@@ -91,25 +91,24 @@ export const cvData = {
     },
     {
       name: "Alta Taza",
-      desc: "Aplicación web full stack para la gestión de pedidos, clientes y administración de productos. Funcionalidades CRUD completas, integración con PostgreSQL y despliegue en AWS.",
+      desc: "Aplicación web full stack para la gestión de pedidos, clientes y administración de productos. CRUD completo con integración PostgreSQL y despliegue en AWS.",
       tech: "React · Node.js · PostgreSQL · AWS",
     },
-
     {
       name: "SportZone",
-      desc: "Tienda deportiva inteligente con catálogo interactivo, carrito de compras, filtros avanzados y chatbot de IA para recomendaciones personalizadas. Chatbot integrado con Azure OpenAI GPT-4.1 mini, animaciones avanzadas con GSAP y búsqueda en tiempo real.",
-      tech: "React · Node.js · Express · Azure OpenAI · GPT-4.1 mini · REST API · GSAP · GitHub",
+      desc: "Tienda deportiva inteligente con catálogo interactivo, carrito de compras, filtros avanzados y chatbot de IA para recomendaciones personalizadas con Azure OpenAI GPT-4.1 mini.",
+      tech: "React · Node.js · Express · Azure OpenAI · GPT-4.1 mini · REST API · GSAP · Vercel",
+      link: "https://sport-store-git-main-hebras-projects.vercel.app/",
     },
-
     {
       name: "Hebras",
-      desc: "Red social web full stack con publicaciones, perfiles de usuario, comentarios y funcionalidades interactivas. Arquitectura full stack con React, TypeScript y Node.js. Desplegada y en producción en Vercel.",
+      desc: "Red social web full stack con publicaciones, perfiles de usuario, comentarios y funcionalidades interactivas. Desplegada y en producción en Vercel.",
       tech: "React · TypeScript · Node.js · Vercel · MySQL",
+      link: "https://hebras-psi.vercel.app",
     },
-
   ],
   skills: {
-    Frontend: ["React", "Next.js", "TypeScript", "Vite", "JavaScript", "HTML5", "CSS3"],
+    Frontend: ["React", "Next.js", "TypeScript", "Vite", "JavaScript", "HTML", "CSS"],
     Backend: ["Node.js", "NestJS", "PHP", "Java", "Python"],
     "Bases de Datos": ["MySQL", "PostgreSQL", "SQL", "Oracle Database"],
     "Cloud & Deploy": ["AWS", "Vercel", "Google Cloud Platform (GCP)"],
@@ -117,9 +116,40 @@ export const cvData = {
     Herramientas: ["Git", "GitHub", "GitHub Desktop", "VS Code", "Android Studio", "Google Colab", "Figma", "Tinkercad"],
     "Metodologías Ágiles": ["Scrum", "Kanban"],
     Ofimática: ["Microsoft Word", "Microsoft PowerPoint", "Microsoft Excel"],
-    "Habilidades Blandas": ["Trabajo en equipo", "Comunicación efectiva", "Adaptabilidad",  "Puntualidad", "Responsabilidad"],
+    "Habilidades Blandas": ["Trabajo en equipo", "Comunicación efectiva", "Adaptabilidad", "Puntualidad", "Responsabilidad"],
   },
-  highlightSkills: ["React", "Next.js", "TypeScript", "AWS"],
+  highlightSkills: ["React", "Next.js", "TypeScript", "Vercel", "GitHub", "VS Code"],
+
+  // ── NUEVA SECCIÓN ──
+  additionalKnowledge: [
+    {
+      area: "Cloud & Deploy",
+      context: "Aprendizaje autodidacta y aplicación práctica en proyectos personales",
+      items: [
+        "AWS (EC2, S3): despliegue del proyecto Alta Taza en entorno de producción.",
+        "Vercel: despliegue continuo del proyecto Hebras y portfolio personal.",
+        "Google Cloud Platform (GCP): uso durante prácticas en APM Inversiones para entrenamiento de agentes de IA.",
+      ],
+    },
+    {
+      area: "Herramientas Móviles y Hardware",
+      context: "Formación académica en SENATI",
+      items: [
+        "Android Studio: desarrollo de aplicaciones móviles básicas durante la carrera.",
+        "Tinkercad: diseño y simulación de circuitos electrónicos en cursos de hardware.",
+      ],
+    },
+    {
+      area: "Inteligencia Artificial Aplicada",
+      context: "Prácticas profesionales y proyectos personales",
+      items: [
+        "LangChain: exploración en el desarrollo de pipelines de IA durante prácticas en APM.",
+        "Machine Learning / Deep Learning: entrenamiento de modelos en Google Colab con datasets reales.",
+        "Azure OpenAI (GPT-4.1 mini): integración en el proyecto SportZone para recomendaciones personalizadas.",
+      ],
+    },
+  ],
+
   education: [
     {
       school: "SENATI",
@@ -127,7 +157,7 @@ export const cvData = {
       status: "Egresado",
     },
   ],
-  certifications: ["JavaScript Básico", "Fundamentos de Java", "Python"],
+  certifications: ["JavaScript Básico", "Fundamentos de Java", "Python", "Oracle Academy"],
   languages: [
     { lang: "Español", level: "Nativo" },
     { lang: "Inglés", level: "Técnico" },

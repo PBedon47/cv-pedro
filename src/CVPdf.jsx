@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  Document, Page, Text, View, Link, StyleSheet,
-} from "@react-pdf/renderer";
+import { Document, Page, Text, View, Link, StyleSheet } from "@react-pdf/renderer";
 import { cvData } from "./cvData";
 
 const C = {
@@ -35,25 +33,16 @@ const s = StyleSheet.create({
   contactLink: { fontSize: 8, color: C.hiText },
   section: { marginBottom: 14 },
   sectionTitle: {
-    fontSize: 8,
-    fontFamily: "Helvetica-Bold",
-    letterSpacing: 1.4,
-    color: C.black,
-    borderBottomWidth: 0.5,
-    borderBottomColor: C.border,
-    paddingBottom: 3,
-    marginBottom: 8,
+    fontSize: 8, fontFamily: "Helvetica-Bold", letterSpacing: 1.4,
+    color: C.black, borderBottomWidth: 0.5, borderBottomColor: C.border,
+    paddingBottom: 3, marginBottom: 8,
   },
   subTitle: {
-    fontSize: 7.5,
-    fontFamily: "Helvetica-Bold",
-    color: C.lightGray,
-    letterSpacing: 0.6,
-    marginTop: 7,
-    marginBottom: 3,
+    fontSize: 7.5, fontFamily: "Helvetica-Bold", color: C.lightGray,
+    letterSpacing: 0.6, marginTop: 7, marginBottom: 3,
   },
-  projDesc: { fontSize: 8.5, color: C.gray, lineHeight: 1.55, fontFamily: "Helvetica-Oblique", marginBottom: 4 },
   summary: { fontSize: 9, color: C.gray, lineHeight: 1.7, fontFamily: "Helvetica-Oblique" },
+  projDescItalic: { fontSize: 8.5, color: C.gray, lineHeight: 1.55, fontFamily: "Helvetica-Oblique", marginBottom: 4 },
   expItem: { marginBottom: 12 },
   expHeader: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 1 },
   expRole: { fontSize: 10, fontFamily: "Helvetica-Bold", color: C.black },
@@ -82,6 +71,10 @@ const s = StyleSheet.create({
   langRow: { flexDirection: "row", gap: 20 },
   langItem: { fontSize: 8.5, color: C.gray },
   langBold: { fontSize: 8.5, fontFamily: "Helvetica-Bold", color: C.black },
+  // Conocimientos complementarios
+  addKnowItem: { marginBottom: 10 },
+  addKnowArea: { fontSize: 9.5, fontFamily: "Helvetica-Bold", color: C.black, marginBottom: 1 },
+  addKnowContext: { fontSize: 8, color: C.lightGray, fontFamily: "Helvetica-Oblique", marginBottom: 4 },
   pageNumber: { position: "absolute", bottom: 16, left: 0, right: 0, textAlign: "center", fontSize: 7, color: C.border },
 });
 
@@ -105,7 +98,11 @@ const PageNum = () => (
 );
 
 export function CVDocument() {
-  const { name, title, contact, summary, experience, projects, skills, highlightSkills, education, certifications, languages } = cvData;
+  const {
+    name, title, contact, summary, experience, projects,
+    skills, highlightSkills, additionalKnowledge,
+    education, certifications, languages,
+  } = cvData;
 
   return (
     <Document title={`CV — ${name}`} author={name} subject="Curriculum Vitae">
@@ -153,25 +150,19 @@ export function CVDocument() {
                   <Text style={s.expPeriod}>{exp.period}</Text>
                 </View>
                 <Text style={s.expCompany}>{exp.company} · {exp.modality}</Text>
-
                 <SubTitle>Funciones y Responsabilidades</SubTitle>
                 {exp.functions.map((f, i) => <Bullet key={i} text={f} />)}
-
-                {/* ── Proyecto Destacado con descripción ── */}
                 <SubTitle>{exp.project.title}</SubTitle>
-                <Text style={s.projDesc}>{exp.project.desc}</Text>
+                <Text style={s.projDescItalic}>{exp.project.desc}</Text>
                 {exp.project.bullets.map((b, i) => <Bullet key={i} text={b} />)}
-
                 <SubTitle>Tecnologías Utilizadas</SubTitle>
                 <View style={s.tagRow}>
                   {exp.techTags.map((t) => <Tag key={t} hi={highlightSkills.includes(t)}>{t}</Tag>)}
                 </View>
-
                 <SubTitle>Herramientas de IA Aplicadas al Desarrollo</SubTitle>
                 <View style={s.tagRow}>
                   {exp.aiTools.map((t) => <Tag key={t}>{t}</Tag>)}
                 </View>
-
                 <SubTitle>Logros</SubTitle>
                 {exp.logros.map((l, i) => <Logro key={i} text={l} />)}
               </View>
@@ -213,10 +204,9 @@ export function CVDocument() {
         <PageNum />
       </Page>
 
-      {/* ── PÁGINA 3 — Skills + Edu + Cert + Idiomas JUNTOS, sin cortes ── */}
+      {/* ── PÁGINA 3 — Skills + Conocimientos Complementarios + Edu + Cert + Idiomas ── */}
       <Page size="A4" style={s.page}>
 
-        {/* Skills — wrap=false evita que se parta entre páginas */}
         <View style={s.section} wrap={false}>
           <SectionTitle>Conocimientos Técnicos</SectionTitle>
           <View style={s.skillsGrid}>
@@ -231,7 +221,20 @@ export function CVDocument() {
           </View>
         </View>
 
-        {/* Educación, Cert e Idiomas — wrap=false los mantiene pegados a Skills */}
+        {/* CONOCIMIENTOS COMPLEMENTARIOS */}
+        {additionalKnowledge && (
+          <View style={s.section} wrap={false}>
+            <SectionTitle>Conocimientos Complementarios</SectionTitle>
+            {additionalKnowledge.map((block, i) => (
+              <View key={i} style={s.addKnowItem}>
+                <Text style={s.addKnowArea}>{block.area}</Text>
+                <Text style={s.addKnowContext}>{block.context}</Text>
+                {block.items.map((item, j) => <Bullet key={j} text={item} />)}
+              </View>
+            ))}
+          </View>
+        )}
+
         <View wrap={false}>
           <View style={s.section}>
             <SectionTitle>Educación</SectionTitle>
