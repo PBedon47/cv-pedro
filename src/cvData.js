@@ -7,7 +7,7 @@ export const cvData = {
     email: "pedrobedon86@gmail.com",
     portfolio: "https://portfolio-hebras-projects.vercel.app/",
     github: "https://github.com/PBedon47",
-    linkedin: "https://linkedin.com/in/pedro-bedon-carbajal-356703333",
+    linkedin: "https://linkedin.com/in/pedro-bedon-carbajal",
   },
   summary:
     "Egresado de la carrera técnica de Ingeniería de Software con IA con experiencia en desarrollo frontend utilizando React, Next.js, TypeScript y Vite. He participado en el desarrollo de aplicaciones web y soluciones tecnológicas que incorporan inteligencia artificial, contribuyendo a la implementación de funcionalidades orientadas a la automatización de procesos y la mejora de la eficiencia operativa..",
