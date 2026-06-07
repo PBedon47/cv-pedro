@@ -125,16 +125,23 @@ export default function CV() {
         </div>
 
         {/* PROYECTOS */}
-        <div className="cv-section">
-          <SectionTitle>Proyectos Destacados</SectionTitle>
-          {projects.map((p, i) => (
-            <div key={i} className="proj-item">
-              <p className="proj-name">{p.name}</p>
-              <p className="proj-desc">{p.desc}</p>
-              <p className="proj-tech">{p.tech}</p>
-            </div>
-          ))}
-        </div>
+          <div className="cv-section">
+            <SectionTitle>Proyectos Destacados</SectionTitle>
+            {projects.map((p, i) => (
+              <div key={i} className="proj-item">
+                <div className="proj-header">
+                  <p className="proj-name">{p.name}</p>
+                  {p.link && (
+                    <a href={p.link} target="_blank" rel="noreferrer" className="proj-link">
+                      Ver proyecto ↗
+                    </a>
+                  )}
+                </div>
+                <p className="proj-desc">{p.desc}</p>
+                <p className="proj-tech">{p.tech}</p>
+              </div>
+            ))}
+          </div>
 
         {/* HABILIDADES */}
         <div className="cv-section">
